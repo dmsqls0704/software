@@ -98,7 +98,7 @@ public class LoginScreen extends JPanel{
 	//    Font fontB = new Font("Yeongdeok sea", Font.PLAIN, 30);
 	    Font fontB = Utility.setFont2(30);
 	    
-	    JButton backButton = new JButton();
+	    JButton backButton = new RoundedButton("");
 	    backButton.setPreferredSize(new Dimension(80, 80));
 	    backButton.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
@@ -123,8 +123,8 @@ public class LoginScreen extends JPanel{
 		panelL.add(backButton, gbc);
 		
 	    /** 확인 버튼을 생성 */
-	    JButton checkButton = new JButton("확인");
-	    checkButton.setPreferredSize(new Dimension(220, 60));
+	    JButton checkButton = new RoundedButton("확인");
+	    checkButton.setPreferredSize(new Dimension(150, 50));
 	    checkButton.setFont(fontB);
 	    /** 버튼을 누르고 로그인에 성공했을 경우 메인 화면으로 넘어가도록 한다. */
 	    checkButton.addActionListener(new ActionListener() {

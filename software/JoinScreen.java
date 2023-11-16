@@ -95,7 +95,7 @@ public class JoinScreen extends JPanel{
 //        Font fontB = new Font("Yeongdeok sea", Font.PLAIN, 30);
         Font fontB = Utility.setFont2(30);
        
-        JButton backButton = new JButton();
+        JButton backButton = new RoundedButton("");
         backButton.setPreferredSize(new Dimension(80, 80));
         backButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -120,8 +120,8 @@ public class JoinScreen extends JPanel{
     	panelJ.add(backButton, gbc);
     	
         /** 확인 버튼을 생성하고, 입력한 닉네임과 비밀번호를 저장한다. */
-        JButton checkButton = new JButton("확인");
-        checkButton.setPreferredSize(new Dimension(220, 60));
+        JButton checkButton = new RoundedButton("확인");
+        checkButton.setPreferredSize(new Dimension(150, 50));
         checkButton.setFont(fontB);
         checkButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {

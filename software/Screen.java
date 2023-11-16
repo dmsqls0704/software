@@ -7,6 +7,8 @@ import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 /** 전체 게임 실행을 담당하는 클래스 */ 
 public class Screen
@@ -33,17 +35,13 @@ class GameScreen extends JFrame {
     	/** 전체 게임이름 설정 */
         setTitle("엎어라 뒤집어라");
         /** 게임 프레임 크기 설정 */
-     /*   
-        
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension screenSize = toolkit.getScreenSize();
         laptopWidth = (int) (screenSize.getWidth() * 0.7);
         laptopHeight = (int) (screenSize.getHeight() * 0.8);
-
-        setSize(laptopWidth, laptopHeight);
-       */
-       setSize(1200,800);
         
+        setSize(laptopWidth, laptopHeight);
+        setResizable(false);
         /** 게임 아이콘 변경 */
         try {
             Image iconImage = ImageIO.read(Screen.class.getResource("/image/logo.jpg"));
@@ -55,7 +53,7 @@ class GameScreen extends JFrame {
         cardLayout = new CardLayout();
         cardPanel = new JPanel(cardLayout);
         
-        GridBagConstraints gbcT = new GridBagConstraints();
+        GridBagConstraints gbc = new GridBagConstraints();
         
         JPanel startPanel = new JPanel();
         startPanel.setLayout(new GridBagLayout());
@@ -69,7 +67,7 @@ class GameScreen extends JFrame {
         title2.setHorizontalAlignment(SwingConstants.CENTER);
         //Font titleFont = new Font("Yeongdeok Haeparang", Font.PLAIN, 100);
         /** 게임 제목 폰트 설정 */
-        Font titleFont = Utility.setFont1(100);
+        Font titleFont = Utility.setFont1(90);
         title1.setFont(titleFont);
         title2.setFont(titleFont);
         
@@ -80,22 +78,22 @@ class GameScreen extends JFrame {
         titleI = new ImageIcon(scaledtitleImage);
 
         JLabel titleImage = new JLabel(titleI); 
-        gbcT.insets = new Insets(10,400,200,50);
-        startPanel.add(titleImage, gbcT);
+        gbc.insets = new Insets(10,400,200,50);
+        startPanel.add(titleImage, gbc);
         
-        gbcT.gridx=0;
-        gbcT.gridy=0;
-        gbcT.insets = new Insets(10,10,100,150);
-        startPanel.add(title1, gbcT);
-        gbcT.insets = new Insets(150,100,10,10);
-        startPanel.add(title2, gbcT);
+        gbc.gridx=0;
+        gbc.gridy=0;
+        gbc.insets = new Insets(10,10,100,150);
+        startPanel.add(title1, gbc);
+        gbc.insets = new Insets(150,100,10,10);
+        startPanel.add(title2, gbc);
 
         //Font font = new Font("Yeongdeok sea", Font.PLAIN, 30);
         Font font = Utility.setFont2(30);
         
         /** 로그인 버튼을 생성 */
-        JButton loginButton = new JButton("로그인");
-        loginButton.setPreferredSize(new Dimension(220, 60));
+        JButton loginButton = new RoundedButton("로그인");
+        loginButton.setPreferredSize(new Dimension(buttonwidth, buttonheight));
         loginButton.setFont(font);
         /** 버튼을 누르면 로그인 화면으로 넘어가도록 한다.*/
         loginButton.addActionListener(new ActionListener() {
@@ -126,8 +124,8 @@ class GameScreen extends JFrame {
 		UIManager.put("Button.focus", new ColorUIResource(new Color(125, 159, 104)));
 		
 	/** 회원가입 버튼을 생성 */
-        JButton joinButton = new JButton("회원가입");
-        joinButton.setPreferredSize(new Dimension(220, 60));
+        JButton joinButton = new RoundedButton("회원가입");
+        joinButton.setPreferredSize(new Dimension(buttonwidth, buttonheight));
         joinButton.setFont(font);
         joinButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {           	
@@ -156,16 +154,14 @@ class GameScreen extends JFrame {
 		joinButton.setBorder(BorderFactory.createLineBorder(new Color(80, 102, 67)));
 		UIManager.put("Button.focus", new ColorUIResource(new Color(125, 159, 104)));
 		
-		GridBagConstraints gbcB = new GridBagConstraints();
-		
-		gbcB.gridwidth = 1;
-		gbcB.gridy=1;
-		gbcB.insets = new Insets(10,10,10,10);
-		startPanel.add(loginButton, gbcB);
+		gbc.gridwidth = 1;
+		gbc.gridy=1;
+		gbc.insets = new Insets(10,10,10,10);
+		startPanel.add(loginButton, gbc);
         
-        gbcB.gridy=2;
-        gbcB.insets = new Insets(10,10,150,10);
-        startPanel.add(joinButton, gbcB);
+        gbc.gridy=2;
+        gbc.insets = new Insets(10,10,10,10);
+        startPanel.add(joinButton, gbc);
 
         add(cardPanel);
         cardPanel.add(startPanel, "startPanel");
@@ -178,4 +174,10 @@ class GameScreen extends JFrame {
         
 //        cardLayout.show(cardPanel, "startPanel");
     }
+    
+    /**버튼의 가로 길이 저장한 변수*/
+    private final int buttonwidth = 200;
+    /**버튼의 세로 길이 저장한 변수*/
+    private final int buttonheight = 50;
+   
 }

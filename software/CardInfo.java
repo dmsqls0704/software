@@ -56,7 +56,7 @@ public class CardInfo extends JPanel{
         
         ImageIcon rankI = new ImageIcon(getClass().getResource("/image/trophy.png"));
         Image originalImage = rankI.getImage();
-        Image scaledImage = originalImage.getScaledInstance(100,100,Image.SCALE_SMOOTH);
+        Image scaledImage = originalImage.getScaledInstance(85,90,Image.SCALE_SMOOTH);
         rankI = new ImageIcon(scaledImage);
         JLabel rankImage = new JLabel(rankI);
         gbc.insets = new Insets(10,10,10,10);
@@ -73,11 +73,11 @@ public class CardInfo extends JPanel{
         userScore.setForeground(new Color(125, 159, 104));
         
         gbc.gridx=1;
-        gbc.insets = new Insets(10,10,10,0);
+        gbc.insets = new Insets(10,10,10,10);
         userRank.add(userNick,gbc);
         
         gbc.anchor = GridBagConstraints.WEST;
-        gbc.insets = new Insets(10,300,10,10);
+        gbc.insets = new Insets(10,340,10,10);
         userRank.add(userScore,gbc);
         
         JButton backButton = new RoundedButton("");
@@ -103,50 +103,64 @@ public class CardInfo extends JPanel{
         gbc.insets = new Insets(10,50,10,10);
         userRank.add(backButton,gbc);
        
-        JScrollPane scroll = new JScrollPane(panelI);
-        scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        scroll.getVerticalScrollBar().setBackground(new Color(248,244,235));
-        scroll.getHorizontalScrollBar().setBackground(new Color(248,244,235));
+        JScrollPane scroll = new JScrollPane();
+        JPanel imagePanel = new JPanel();
+        imagePanel.setLayout(new GridBagLayout());
+        imagePanel.setBackground(new Color(248,244,235));
+        
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+
         
         gbc.anchor = GridBagConstraints.WEST;
         
-        addImage(panelI, "/image/bongji.jpg",0,1,gbc);
-        addImage(panelI, "/image/clockt.jpg",1,1,gbc);
-        addImage(panelI, "/image/baekdo.jpg",2,1,gbc);
-        addImage(panelI, "/image/dido.jpg",0,2,gbc);
-        addImage(panelI, "/image/hongdo.jpg",1,2,gbc);
-        addImage(panelI, "/image/playground.jpg",2,2,gbc);
-        addImage(panelI, "/image/yongbongt.jpg",0,3,gbc);
-        addImage(panelI, "/image/yongji.jpg",1,3,gbc);
+        addImage(imagePanel, "/image/bongji.jpg",0,1,gbc);
+        addImage(imagePanel, "/image/clockt.jpg",1,1,gbc);
+        addImage(imagePanel, "/image/baekdo.jpg",2,1,gbc);
+        addImage(imagePanel, "/image/dido.jpg",0,2,gbc);
+        addImage(imagePanel, "/image/hongdo.jpg",1,2,gbc);
+        addImage(imagePanel, "/image/playground.jpg",2,2,gbc);
+        addImage(imagePanel, "/image/yongbongt.jpg",0,3,gbc);
+        addImage(imagePanel, "/image/yongji.jpg",1,3,gbc);
         
-        addImage(panelI, "/image/club1.jpg",0,4,gbc);
-        addImage(panelI, "/image/club2.jpg",1,4,gbc);
-        addImage(panelI, "/image/club3.jpg",2,4,gbc);
-        addImage(panelI, "/image/club4.jpg",0,5,gbc);
-        addImage(panelI, "/image/club5.jpg",1,5,gbc);
-        addImage(panelI, "/image/club6.jpg",2,5,gbc);
-        addImage(panelI, "/image/club7.jpg",0,6,gbc);
-        addImage(panelI, "/image/club8.jpg",1,6,gbc);
-        addImage(panelI, "/image/club9.jpg",2,6,gbc);
-        addImage(panelI, "/image/club10.jpg",0,7,gbc);
-        addImage(panelI, "/image/club11.jpg",1,7,gbc);
-        addImage(panelI, "/image/club12.jpg",2,7,gbc);
-        addImage(panelI, "/image/club13.jpg",0,8,gbc);
-        addImage(panelI, "/image/club14.jpg",1,8,gbc);
-        addImage(panelI, "/image/club15.jpg",2,8,gbc);
-        addImage(panelI, "/image/club16.jpg",0,9,gbc);
-        addImage(panelI, "/image/club17.jpg",1,9,gbc);
-        addImage(panelI, "/image/club18.jpg",2,9,gbc);
-        addImage(panelI, "/image/club19.jpg",0,10,gbc);
-        addImage(panelI, "/image/club20.jpg",1,10,gbc);
-        addImage(panelI, "/image/club21.jpg",2,10,gbc);
-        addImage(panelI, "/image/club22.jpg",0,10,gbc);
-        addImage(panelI, "/image/club23.jpg",1,10,gbc);
-        addImage(panelI, "/image/club24.jpg",2,10,gbc);
+        addImage(imagePanel, "/image/club1.jpg",0,4,gbc);
+        addImage(imagePanel, "/image/club2.jpg",1,4,gbc);
+        addImage(imagePanel, "/image/club3.jpg",2,4,gbc);
+        addImage(imagePanel, "/image/club4.jpg",0,5,gbc);
+        addImage(imagePanel, "/image/club5.jpg",1,5,gbc);
+        addImage(imagePanel, "/image/club6.jpg",2,5,gbc);
+        addImage(imagePanel, "/image/club7.jpg",0,6,gbc);
+        addImage(imagePanel, "/image/club8.jpg",1,6,gbc);
+        addImage(imagePanel, "/image/club9.jpg",2,6,gbc);
+        addImage(imagePanel, "/image/club10.jpg",0,7,gbc);
+        addImage(imagePanel, "/image/club11.jpg",1,7,gbc);
+        addImage(imagePanel, "/image/club12.jpg",2,7,gbc);
+        addImage(imagePanel, "/image/club13.jpg",0,8,gbc);
+        addImage(imagePanel, "/image/club14.jpg",1,8,gbc);
+        addImage(imagePanel, "/image/club15.jpg",2,8,gbc);
+        addImage(imagePanel, "/image/club16.jpg",0,9,gbc);
+        addImage(imagePanel, "/image/club17.jpg",1,9,gbc);
+        addImage(imagePanel, "/image/club18.jpg",2,9,gbc);
+        addImage(imagePanel, "/image/club19.jpg",0,10,gbc);
+        addImage(imagePanel, "/image/club20.jpg",1,10,gbc);
+        addImage(imagePanel, "/image/club21.jpg",2,10,gbc);
+        addImage(imagePanel, "/image/club22.jpg",0,10,gbc);
+        addImage(imagePanel, "/image/club23.jpg",1,10,gbc);
+        addImage(imagePanel, "/image/club24.jpg",2,10,gbc);
         
         
-        add(scroll, "InfoPanel");
-//        add(panelI, "InfoPanel");
+        scroll.setViewportView(imagePanel);
+        scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scroll.getVerticalScrollBar().setBackground(new Color(248, 244, 235));
+        scroll.getHorizontalScrollBar().setBackground(new Color(248, 244, 235));
+
+       
+        panelI.add(scroll,gbc);
+//       add(scroll, "InfoPanel");
+        add(panelI, "InfoPanel");
 	}
 	
 	 private void addImage(JPanel panel, String imagePath, int gridX, int gridY, GridBagConstraints gbc) {
@@ -156,7 +170,8 @@ public class CardInfo extends JPanel{
 		imageIcon = new ImageIcon(scaledImage);
 		
 		JLabel imageLabel = new JLabel(imageIcon);
-		
+		gbc.weightx = 1.0; 
+	    gbc.weighty = 1.0;
 		gbc.gridx = gridX;
         gbc.gridy = gridY;
         gbc.insets = new Insets(10,10, 10, 10);
