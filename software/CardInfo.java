@@ -43,10 +43,13 @@ public class CardInfo extends JPanel{
         gbc.gridx=0;
         gbc.gridy=0;
         gbc.anchor = GridBagConstraints.WEST;
+        gbc.gridwidth = 4; 
+        gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.weightx = 1.0;
-//        gbc.insets = new Insets(0,0,0,0);
         panelI.add(userRank,gbc);
-  
+        
+        gbc.gridwidth =1;
+        gbc.fill = GridBagConstraints.NONE;
 //        Font font = new Font("Yeongdeok sea", Font.PLAIN, 30);
         Font font = Utility.setFont2(50);
         
@@ -58,18 +61,23 @@ public class CardInfo extends JPanel{
         gbc.insets = new Insets(10,10,10,10);
         userRank.add(rankImage);
         
+        gbc.gridwidth = 2;
         JLabel userNick = new JLabel(data[0]);
         JLabel userScore = new JLabel(data[1]);
+        userNick.setMaximumSize(new Dimension(200, 80)); 
+//        userNick.setPreferredSize(new Dimension(200, 80)); 
+        
         userNick.setFont(font);
         userScore.setFont(font);
         userScore.setForeground(new Color(125, 159, 104));
         
         gbc.gridx=1;
-        gbc.insets = new Insets(10,10,10,10);
+        gbc.insets = new Insets(10,10,10,0);
         userRank.add(userNick,gbc);
         
-        gbc.gridx=2;
-        gbc.insets = new Insets(10,10,10,10);
+        gbc.anchor = GridBagConstraints.WEST;
+//        gbc.gridx=2;
+        gbc.insets = new Insets(10,300,10,10);
         userRank.add(userScore,gbc);
         
         JButton backButton = new JButton();
@@ -88,9 +96,11 @@ public class CardInfo extends JPanel{
         backButton.setBackground(new Color(125, 159, 104));
         backButton.setBorder(BorderFactory.createLineBorder(new Color(80, 102, 67)));
         UIManager.put("Button.focus", new ColorUIResource(new Color(125, 159, 104)));
-        
+
+        gbc.gridwidth = 1;
         gbc.gridx=3;
-        gbc.insets = new Insets(10,10,10,10);
+        gbc.anchor = GridBagConstraints.EAST;
+        gbc.insets = new Insets(10,50,10,10);
         userRank.add(backButton,gbc);
        
         JScrollPane scroll = new JScrollPane(panelI);
@@ -98,6 +108,7 @@ public class CardInfo extends JPanel{
         scroll.getVerticalScrollBar().setBackground(new Color(248,244,235));
         scroll.getHorizontalScrollBar().setBackground(new Color(248,244,235));
         
+        gbc.anchor = GridBagConstraints.WEST;
         ImageIcon cardplayground = new ImageIcon(getClass().getResource("/image/playground.jpg"));
         Image originalplayground = cardplayground.getImage();
         Image scaledplayground = originalplayground.getScaledInstance(225, 300, Image.SCALE_SMOOTH);
@@ -181,6 +192,58 @@ public class CardInfo extends JPanel{
         gbc.gridx=1;
         gbc.insets = new Insets(10,10,10,10);
         panelI.add(yongji,gbc);
+        
+        ImageIcon cardclub1 = new ImageIcon(getClass().getResource("/image/club1.jpg"));
+        Image originalclub1 = cardclub1.getImage();
+        Image scaledclub1 = originalclub1.getScaledInstance(225, 300, Image.SCALE_SMOOTH);
+        cardclub1 = new ImageIcon(scaledclub1);
+        
+        JLabel club1 = new JLabel(cardclub1);
+        gbc.gridx=0;
+        gbc.gridy=4;
+        gbc.insets = new Insets(10,10,10,10);
+        panelI.add(club1,gbc);
+        
+        ImageIcon cardclub2 = new ImageIcon(getClass().getResource("/image/club2.jpg"));
+        Image originalclub2 = cardclub2.getImage();
+        Image scaledclub2 = originalclub2.getScaledInstance(225, 300, Image.SCALE_SMOOTH);
+        cardclub1 = new ImageIcon(scaledclub2);
+        
+        JLabel club2 = new JLabel(cardclub1);
+        gbc.gridx=1;
+        gbc.insets = new Insets(10,10,10,10);
+        panelI.add(club2,gbc);
+        
+        ImageIcon cardclub3 = new ImageIcon(getClass().getResource("/image/club3.jpg"));
+        Image originalclub3 = cardclub3.getImage();
+        Image scaledclub3 = originalclub3.getScaledInstance(225, 300, Image.SCALE_SMOOTH);
+        cardclub3 = new ImageIcon(scaledclub3);
+        
+        JLabel club3 = new JLabel(cardclub3);
+        gbc.gridx=2;
+        gbc.insets = new Insets(10,10,10,10);
+        panelI.add(club3,gbc);
+        
+        ImageIcon cardclub4 = new ImageIcon(getClass().getResource("/image/club4.jpg"));
+        Image originalclub4 = cardclub4.getImage();
+        Image scaledclub4 = originalclub4.getScaledInstance(225, 300, Image.SCALE_SMOOTH);
+        cardclub4 = new ImageIcon(scaledclub4);
+        
+        JLabel club4 = new JLabel(cardclub4);
+        gbc.gridx=0;
+        gbc.gridy=5;
+        gbc.insets = new Insets(10,10,10,10);
+        panelI.add(club4,gbc);
+        
+        ImageIcon cardclub5 = new ImageIcon(getClass().getResource("/image/club5.jpg"));
+        Image originalclub5 = cardclub5.getImage();
+        Image scaledclub5 = originalclub5.getScaledInstance(225, 300, Image.SCALE_SMOOTH);
+        cardclub5 = new ImageIcon(scaledclub5);
+        
+        JLabel club5 = new JLabel(cardclub5);
+        gbc.gridx=1;
+        gbc.insets = new Insets(10,10,10,10);
+        panelI.add(club5,gbc);
         
         add(scroll, "InfoPanel");
 //        add(panelI, "InfoPanel");

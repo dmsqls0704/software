@@ -24,6 +24,8 @@ public class Screen
 class GameScreen extends JFrame {
 	private CardLayout cardLayout;
 	private JPanel cardPanel;
+	private int laptopWidth;
+    private int laptopHeight;
     /**
      * GameScreen클래스의 생성자이다.
      */
@@ -31,7 +33,16 @@ class GameScreen extends JFrame {
     	/** 전체 게임이름 설정 */
         setTitle("엎어라 뒤집어라");
         /** 게임 프레임 크기 설정 */
-        setSize(WIDTH, HEIGHT);
+     /*   
+        
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        Dimension screenSize = toolkit.getScreenSize();
+        laptopWidth = (int) (screenSize.getWidth() * 0.7);
+        laptopHeight = (int) (screenSize.getHeight() * 0.8);
+
+        setSize(laptopWidth, laptopHeight);
+       */
+       setSize(1200,800);
         
         /** 게임 아이콘 변경 */
         try {
@@ -89,10 +100,7 @@ class GameScreen extends JFrame {
         /** 버튼을 누르면 로그인 화면으로 넘어가도록 한다.*/
         loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-//            	saveOriginalSize();
                 cardLayout.show(cardPanel, "loginPanel");
-//                setSize(800, 600);
-//                setResizable(false);
             }
         });
         /** 로그인 버튼에 마우스 커서를 올렸을 때 타이틀 이미지가 변경되도록 한다. */
@@ -122,12 +130,9 @@ class GameScreen extends JFrame {
         joinButton.setPreferredSize(new Dimension(220, 60));
         joinButton.setFont(font);
         joinButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-//            	saveOriginalSize();
+            public void actionPerformed(ActionEvent e) {           	
             	cardLayout.show(cardPanel, "joinPanel");
-//                setSize(800, 600);
-//                setResizable(false);
-            }
+          }
         });
         /** 버튼을 누르면 화면가입 화면으로 넘어가도록 한다. */
         joinButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -153,6 +158,7 @@ class GameScreen extends JFrame {
 		
 		GridBagConstraints gbcB = new GridBagConstraints();
 		
+		gbcB.gridwidth = 1;
 		gbcB.gridy=1;
 		gbcB.insets = new Insets(10,10,10,10);
 		startPanel.add(loginButton, gbcB);
@@ -170,21 +176,6 @@ class GameScreen extends JFrame {
         JoinScreen joinScreen = new JoinScreen(cardLayout, cardPanel);
         cardPanel.add(joinScreen, "joinPanel");
         
-        cardLayout.show(cardPanel, "startPanel");
+//        cardLayout.show(cardPanel, "startPanel");
     }
-    /*
-    private int originalWidth;
-    private int originalHeight;
-    
-    public void saveOriginalSize() {
-        originalWidth = getWidth();
-        originalHeight = getHeight();
-    }
-    public void returnScreenSize() {
-        setSize(originalWidth, originalHeight);
-        setResizable(true);
-    }
-    */
-    public static final int WIDTH = 1200;
-    public static final int HEIGHT = 800;
 }

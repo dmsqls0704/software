@@ -6,11 +6,13 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -42,7 +44,7 @@ public class JoinScreen extends JPanel{
         cardPanel = panel;
         dataManager = new DataManager();
         
-	setLayout(cardLayout);
+        setLayout(cardLayout);
         
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx=0;
@@ -93,6 +95,30 @@ public class JoinScreen extends JPanel{
 //        Font fontB = new Font("Yeongdeok sea", Font.PLAIN, 30);
         Font fontB = Utility.setFont2(30);
        
+        JButton backButton = new JButton();
+        backButton.setPreferredSize(new Dimension(80, 80));
+        backButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		cardLayout.show(cardPanel,"startPanel");
+        	}
+        });
+        backButton.setBackground(new Color(125, 159, 104));
+        backButton.setBorder(BorderFactory.createLineBorder(new Color(80, 102, 67)));
+    	UIManager.put("Button.focus", new ColorUIResource(new Color(125, 159, 104)));
+    	
+    	ImageIcon homeImage = new ImageIcon(getClass().getResource("/image/yongyonghome.png"));
+        Image originalhomeImage = homeImage.getImage();
+        Image scaledhomeImage = originalhomeImage.getScaledInstance(100,100, Image.SCALE_SMOOTH);
+        homeImage= new ImageIcon(scaledhomeImage);
+        
+        backButton.setIcon(homeImage);
+        
+    	gbc.anchor = GridBagConstraints.EAST;
+    	gbc.gridx=1;
+    	gbc.gridy=0;
+    	gbc.insets = new Insets(10,10,10,10);
+    	panelJ.add(backButton, gbc);
+    	
         /** 확인 버튼을 생성하고, 입력한 닉네임과 비밀번호를 저장한다. */
         JButton checkButton = new JButton("확인");
         checkButton.setPreferredSize(new Dimension(220, 60));
@@ -125,14 +151,14 @@ public class JoinScreen extends JPanel{
         	}	
         });
         checkButton.setBackground(new Color(125, 159, 104));
-	checkButton.setBorder(BorderFactory.createLineBorder(new Color(80, 102, 67)));
-	UIManager.put("Button.focus", new ColorUIResource(new Color(125, 159, 104)));
+        checkButton.setBorder(BorderFactory.createLineBorder(new Color(80, 102, 67)));
+		UIManager.put("Button.focus", new ColorUIResource(new Color(125, 159, 104)));
 		
-	gbc.anchor = GridBagConstraints.EAST;
-	gbc.gridx=1;
-	gbc.gridy=4;
-	gbc.insets = new Insets(10,10,10,10);
-	panelJ.add(checkButton, gbc);
+		gbc.anchor = GridBagConstraints.EAST;
+		gbc.gridx=1;
+		gbc.gridy=4;
+		gbc.insets = new Insets(10,10,10,10);
+		panelJ.add(checkButton, gbc);
     
         add(panelJ, "joinPanel");
 	}
