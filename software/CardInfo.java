@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 /**
  * 
  * 정보 열람 화면을 실행하는 클래스이다. 
@@ -76,11 +77,10 @@ public class CardInfo extends JPanel{
         userRank.add(userNick,gbc);
         
         gbc.anchor = GridBagConstraints.WEST;
-//        gbc.gridx=2;
         gbc.insets = new Insets(10,300,10,10);
         userRank.add(userScore,gbc);
         
-        JButton backButton = new JButton();
+        JButton backButton = new RoundedButton("");
         ImageIcon homeImage = new ImageIcon(getClass().getResource("/image/yongyonghome.png"));
         Image originalhomeImage = homeImage.getImage();
         Image scaledhomeImage = originalhomeImage.getScaledInstance(100,100, Image.SCALE_SMOOTH);
@@ -109,143 +109,59 @@ public class CardInfo extends JPanel{
         scroll.getHorizontalScrollBar().setBackground(new Color(248,244,235));
         
         gbc.anchor = GridBagConstraints.WEST;
-        ImageIcon cardplayground = new ImageIcon(getClass().getResource("/image/playground.jpg"));
-        Image originalplayground = cardplayground.getImage();
-        Image scaledplayground = originalplayground.getScaledInstance(225, 300, Image.SCALE_SMOOTH);
-        cardplayground = new ImageIcon(scaledplayground);
         
-        JLabel playground = new JLabel(cardplayground);
-        gbc.gridx=0;
-        gbc.gridy=1;
-        gbc.insets = new Insets(10,10,10,10);
-        panelI.add(playground,gbc);
+        addImage(panelI, "/image/bongji.jpg",0,1,gbc);
+        addImage(panelI, "/image/clockt.jpg",1,1,gbc);
+        addImage(panelI, "/image/baekdo.jpg",2,1,gbc);
+        addImage(panelI, "/image/dido.jpg",0,2,gbc);
+        addImage(panelI, "/image/hongdo.jpg",1,2,gbc);
+        addImage(panelI, "/image/playground.jpg",2,2,gbc);
+        addImage(panelI, "/image/yongbongt.jpg",0,3,gbc);
+        addImage(panelI, "/image/yongji.jpg",1,3,gbc);
         
-        ImageIcon cardbongji = new ImageIcon(getClass().getResource("/image/bongji.jpg"));
-        Image originalbongji = cardbongji.getImage();
-        Image scaledbongji = originalbongji.getScaledInstance(225, 300, Image.SCALE_SMOOTH);
-        cardbongji = new ImageIcon(scaledbongji);
+        addImage(panelI, "/image/club1.jpg",0,4,gbc);
+        addImage(panelI, "/image/club2.jpg",1,4,gbc);
+        addImage(panelI, "/image/club3.jpg",2,4,gbc);
+        addImage(panelI, "/image/club4.jpg",0,5,gbc);
+        addImage(panelI, "/image/club5.jpg",1,5,gbc);
+        addImage(panelI, "/image/club6.jpg",2,5,gbc);
+        addImage(panelI, "/image/club7.jpg",0,6,gbc);
+        addImage(panelI, "/image/club8.jpg",1,6,gbc);
+        addImage(panelI, "/image/club9.jpg",2,6,gbc);
+        addImage(panelI, "/image/club10.jpg",0,7,gbc);
+        addImage(panelI, "/image/club11.jpg",1,7,gbc);
+        addImage(panelI, "/image/club12.jpg",2,7,gbc);
+        addImage(panelI, "/image/club13.jpg",0,8,gbc);
+        addImage(panelI, "/image/club14.jpg",1,8,gbc);
+        addImage(panelI, "/image/club15.jpg",2,8,gbc);
+        addImage(panelI, "/image/club16.jpg",0,9,gbc);
+        addImage(panelI, "/image/club17.jpg",1,9,gbc);
+        addImage(panelI, "/image/club18.jpg",2,9,gbc);
+        addImage(panelI, "/image/club19.jpg",0,10,gbc);
+        addImage(panelI, "/image/club20.jpg",1,10,gbc);
+        addImage(panelI, "/image/club21.jpg",2,10,gbc);
+        addImage(panelI, "/image/club22.jpg",0,10,gbc);
+        addImage(panelI, "/image/club23.jpg",1,10,gbc);
+        addImage(panelI, "/image/club24.jpg",2,10,gbc);
         
-        JLabel bongji = new JLabel(cardbongji);
-        gbc.gridx=1;
-        gbc.insets = new Insets(10,10,10,10);
-        panelI.add(bongji,gbc);
-        
-        ImageIcon cardclockt = new ImageIcon(getClass().getResource("/image/clockt.jpg"));
-        Image originalclockt = cardclockt.getImage();
-        Image scaledclockt = originalclockt.getScaledInstance(225, 300, Image.SCALE_SMOOTH);
-        cardclockt = new ImageIcon(scaledclockt);
-        
-        JLabel clockt = new JLabel(cardclockt);
-        gbc.gridx=2;
-        gbc.insets = new Insets(10,10,10,10);
-        panelI.add(clockt,gbc);
-        
-        ImageIcon carddido = new ImageIcon(getClass().getResource("/image/dido.jpg"));
-        Image originaldido = carddido.getImage();
-        Image scaleddido = originaldido.getScaledInstance(225, 300, Image.SCALE_SMOOTH);
-        carddido = new ImageIcon(scaleddido);
-        
-        JLabel dido = new JLabel(carddido);
-        gbc.gridx=0;
-        gbc.gridy=2;
-        gbc.insets = new Insets(10,10,10,10);
-        panelI.add(dido,gbc);
-        
-        ImageIcon cardhongdo = new ImageIcon(getClass().getResource("/image/hongdo.jpg"));
-        Image originalhongdo = cardhongdo.getImage();
-        Image scaledhongdo = originalhongdo.getScaledInstance(225, 300, Image.SCALE_SMOOTH);
-        cardhongdo = new ImageIcon(scaledhongdo);
-        
-        JLabel hongdo = new JLabel(cardhongdo);
-        gbc.gridx=1;
-        gbc.insets = new Insets(10,10,10,10);
-        panelI.add(hongdo,gbc);
-        
-        ImageIcon cardbaekdo = new ImageIcon(getClass().getResource("/image/baekdo.jpg"));
-        Image originalbaekdo = cardbaekdo.getImage();
-        Image scaledbaekdo = originalbaekdo.getScaledInstance(225, 300, Image.SCALE_SMOOTH);
-        cardbaekdo = new ImageIcon(scaledbaekdo);
-        
-        JLabel baekdo = new JLabel(cardbaekdo);
-        gbc.gridx=2;
-        gbc.insets = new Insets(10, 10, 10, 10);
-        panelI.add(baekdo,gbc);
-       
-
-        ImageIcon cardyongbongt = new ImageIcon(getClass().getResource("/image/yongbongt.jpg"));
-        Image originalyongbongt = cardyongbongt.getImage();
-        Image scaledyongbongt = originalyongbongt.getScaledInstance(225, 300, Image.SCALE_SMOOTH);
-        cardyongbongt = new ImageIcon(scaledyongbongt);
-        
-        JLabel yongbongt = new JLabel(cardyongbongt);
-        gbc.gridx=0;
-        gbc.gridy=3;
-        gbc.insets = new Insets(10,10,10,10);
-        panelI.add(yongbongt,gbc);
-        
-        ImageIcon cardyongji = new ImageIcon(getClass().getResource("/image/yongji.jpg"));
-        Image originalyongji = cardyongji.getImage();
-        Image scaledyongji = originalyongji.getScaledInstance(225, 300, Image.SCALE_SMOOTH);
-        cardyongji = new ImageIcon(scaledyongji);
-        
-        JLabel yongji = new JLabel(cardyongji);
-        gbc.gridx=1;
-        gbc.insets = new Insets(10,10,10,10);
-        panelI.add(yongji,gbc);
-        
-        ImageIcon cardclub1 = new ImageIcon(getClass().getResource("/image/club1.jpg"));
-        Image originalclub1 = cardclub1.getImage();
-        Image scaledclub1 = originalclub1.getScaledInstance(225, 300, Image.SCALE_SMOOTH);
-        cardclub1 = new ImageIcon(scaledclub1);
-        
-        JLabel club1 = new JLabel(cardclub1);
-        gbc.gridx=0;
-        gbc.gridy=4;
-        gbc.insets = new Insets(10,10,10,10);
-        panelI.add(club1,gbc);
-        
-        ImageIcon cardclub2 = new ImageIcon(getClass().getResource("/image/club2.jpg"));
-        Image originalclub2 = cardclub2.getImage();
-        Image scaledclub2 = originalclub2.getScaledInstance(225, 300, Image.SCALE_SMOOTH);
-        cardclub1 = new ImageIcon(scaledclub2);
-        
-        JLabel club2 = new JLabel(cardclub1);
-        gbc.gridx=1;
-        gbc.insets = new Insets(10,10,10,10);
-        panelI.add(club2,gbc);
-        
-        ImageIcon cardclub3 = new ImageIcon(getClass().getResource("/image/club3.jpg"));
-        Image originalclub3 = cardclub3.getImage();
-        Image scaledclub3 = originalclub3.getScaledInstance(225, 300, Image.SCALE_SMOOTH);
-        cardclub3 = new ImageIcon(scaledclub3);
-        
-        JLabel club3 = new JLabel(cardclub3);
-        gbc.gridx=2;
-        gbc.insets = new Insets(10,10,10,10);
-        panelI.add(club3,gbc);
-        
-        ImageIcon cardclub4 = new ImageIcon(getClass().getResource("/image/club4.jpg"));
-        Image originalclub4 = cardclub4.getImage();
-        Image scaledclub4 = originalclub4.getScaledInstance(225, 300, Image.SCALE_SMOOTH);
-        cardclub4 = new ImageIcon(scaledclub4);
-        
-        JLabel club4 = new JLabel(cardclub4);
-        gbc.gridx=0;
-        gbc.gridy=5;
-        gbc.insets = new Insets(10,10,10,10);
-        panelI.add(club4,gbc);
-        
-        ImageIcon cardclub5 = new ImageIcon(getClass().getResource("/image/club5.jpg"));
-        Image originalclub5 = cardclub5.getImage();
-        Image scaledclub5 = originalclub5.getScaledInstance(225, 300, Image.SCALE_SMOOTH);
-        cardclub5 = new ImageIcon(scaledclub5);
-        
-        JLabel club5 = new JLabel(cardclub5);
-        gbc.gridx=1;
-        gbc.insets = new Insets(10,10,10,10);
-        panelI.add(club5,gbc);
         
         add(scroll, "InfoPanel");
 //        add(panelI, "InfoPanel");
 	}
+	
+	 private void addImage(JPanel panel, String imagePath, int gridX, int gridY, GridBagConstraints gbc) {
+		ImageIcon imageIcon = new ImageIcon(getClass().getResource(imagePath));
+		Image originalImage = imageIcon.getImage();
+		Image scaledImage = originalImage.getScaledInstance(225,300, Image.SCALE_SMOOTH);
+		imageIcon = new ImageIcon(scaledImage);
+		
+		JLabel imageLabel = new JLabel(imageIcon);
+		
+		gbc.gridx = gridX;
+        gbc.gridy = gridY;
+        gbc.insets = new Insets(10,10, 10, 10);
+        panel.add(imageLabel, gbc);
+	}
+	 
+	
 }
